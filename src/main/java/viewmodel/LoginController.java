@@ -8,36 +8,36 @@ import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import service.UserSession;
 
-
+import java.util.prefs.Preferences;
 
 public class LoginController {
 
+    @FXML private GridPane rootpane;
+    @FXML private TextField usernameTextField;
+    @FXML private PasswordField passwordField;
+    @FXML private Label errorLabel;
 
-    @FXML
-    private GridPane rootpane;
     public void initialize() {
         rootpane.setBackground(new Background(
-                        createImage("https://edencoding.com/wp-content/uploads/2021/03/layer_06_1920x1080.png"),
-                        null,
-                        null,
-                        null,
-                        null,
-                        null
-                )
-        );
-
-
+                createImage("https://edencoding.com/wp-content/uploads/2021/03/layer_06_1920x1080.png"),
+                null, null, null, null, null
+        ));
         rootpane.setOpacity(0);
-        FadeTransition fadeOut2 = new FadeTransition(Duration.seconds(10), rootpane);
-        fadeOut2.setFromValue(0);
-        fadeOut2.setToValue(1);
-        fadeOut2.play();
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(10), rootpane);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+        fadeIn.play();
     }
+
     private static BackgroundImage createImage(String url) {
         return new BackgroundImage(
                 new Image(url),
@@ -45,8 +45,30 @@ public class LoginController {
                 new BackgroundPosition(Side.LEFT, 0, true, Side.BOTTOM, 0, true),
                 new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true, true, false, true));
     }
+
     @FXML
     public void login(ActionEvent actionEvent) {
+        String username = usernameTextField.getText().trim();
+        String password = passwordField.getText();
+
+        Preferences prefs = Preferences.userRoot().node("academictrack");
+        String savedUsername = prefs.get("USERNAME", null);
+        String savedPassword = prefs.get("PASSWORD", null);
+
+        if (savedUsername == null) {
+            // No account exists yet — allow entry and prompt to sign up
+            errorLabel.setText("No account found. Please sign up first.");
+            return;
+        }
+
+        if (!username.equals(savedUsername) || !password.equals(savedPassword)) {
+            errorLabel.setText("Invalid username or password.");
+            passwordField.clear();
+            return;
+        }
+
+        UserSession.getInstance(username, password, prefs.get("PRIVILEGES", "USER"));
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/db_interface_gui.fxml"));
             Scene scene = new Scene(root, 900, 600);
@@ -59,6 +81,7 @@ public class LoginController {
         }
     }
 
+    @FXML
     public void signUp(ActionEvent actionEvent) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/signUp.fxml"));
@@ -71,6 +94,4 @@ public class LoginController {
             e.printStackTrace();
         }
     }
-
-
 }

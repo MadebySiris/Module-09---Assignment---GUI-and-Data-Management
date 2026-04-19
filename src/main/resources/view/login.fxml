@@ -37,7 +37,7 @@
                 <Insets />
             </GridPane.margin>
             <children>
-                <Label alignment="CENTER" prefHeight="114.0" prefWidth="1362.0" style="-fx-border-color: BLACK;" styleClass="login_title" text="STUDENT REGISTRATION&#10;" textAlignment="CENTER" textFill="#111386" wrapText="true">
+                <Label alignment="CENTER" prefHeight="114.0" prefWidth="1362.0" style="-fx-border-color: BLACK;" styleClass="login_title" text="AcademicTrack&#10;Student Registry" textAlignment="CENTER" textFill="#111386" wrapText="true">
                     <font>
                         <Font name="System Bold" size="51.0" />
                     </font>
@@ -83,5 +83,6 @@
                     <Font name="System Bold" size="15.0" />
                 </font>
             </Button>
+            <Label fx:id="errorLabel" text="" style="-fx-text-fill: #cc0000; -fx-font-size: 13px; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
     </children>
 </GridPane>

@@ -1,15 +1,12 @@
 package service;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.prefs.Preferences;
 
 public class UserSession {
 
-    private static UserSession instance;
+    private static volatile UserSession instance;
 
     private String userName;
-
     private String password;
     private String privileges;
 
@@ -17,50 +14,61 @@ public class UserSession {
         this.userName = userName;
         this.password = password;
         this.privileges = privileges;
-        Preferences userPreferences = Preferences.userRoot();
-        userPreferences.put("USERNAME",userName);
-        userPreferences.put("PASSWORD",password);
-        userPreferences.put("PRIVILEGES",privileges);
+        Preferences prefs = Preferences.userRoot();
+        prefs.put("USERNAME", userName);
+        prefs.put("PASSWORD", password);
+        prefs.put("PRIVILEGES", privileges);
     }
 
-
-
-    public static UserSession getInstace(String userName,String password, String privileges) {
-        if(instance == null) {
-            instance = new UserSession(userName, password, privileges);
+    public static UserSession getInstance(String userName, String password, String privileges) {
+        if (instance == null) {
+            synchronized (UserSession.class) {
+                if (instance == null) {
+                    instance = new UserSession(userName, password, privileges);
+                }
+            }
         }
         return instance;
     }
 
-    public static UserSession getInstace(String userName,String password) {
-        if(instance == null) {
-            instance = new UserSession(userName, password, "NONE");
-        }
+    public static UserSession getInstance(String userName, String password) {
+        return getInstance(userName, password, "USER");
+    }
+
+    public static UserSession getInstance() {
         return instance;
     }
-    public String getUserName() {
-        return this.userName;
+
+    // Backward-compatible typo overloads
+    public static UserSession getInstace(String userName, String password, String privileges) {
+        return getInstance(userName, password, privileges);
     }
 
-    public String getPassword() {
-        return this.password;
+    public static UserSession getInstace(String userName, String password) {
+        return getInstance(userName, password);
     }
 
-    public String getPrivileges() {
-        return this.privileges;
+    public synchronized String getUserName() {
+        return userName;
     }
 
-    public void cleanUserSession() {
-        this.userName = "";// or null
+    public synchronized String getPassword() {
+        return password;
+    }
+
+    public synchronized String getPrivileges() {
+        return privileges;
+    }
+
+    public synchronized void cleanUserSession() {
+        this.userName = "";
         this.password = "";
-        this.privileges = "";// or null
+        this.privileges = "";
+        instance = null;
     }
 
     @Override
     public String toString() {
-        return "UserSession{" +
-                "userName='" + this.userName + '\'' +
-                ", privileges=" + this.privileges +
-                '}';
+        return "UserSession{userName='" + userName + "', privileges=" + privileges + '}';
     }
 }

@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TextArea layoutX="6.0" layoutY="51.0" prefHeight="343.0" prefWidth="584.0" text="Your text goes here " wrapText="true">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </TextArea>
-      <Label alignment="TOP_LEFT" layoutX="8.0" layoutY="11.0" prefHeight="44.0" prefWidth="542.0" text="Developer: MM mM">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: #f9f9f9;"
+            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox layoutX="10.0" layoutY="10.0" prefWidth="580.0" spacing="10.0">
+            <Label text="AcademicTrack — Student Registry" style="-fx-text-fill: #111386;">
+                <font><Font name="System Bold" size="24.0"/></font>
+            </Label>
+            <Label text="Version 2.0  |  CSC311 Advanced Programming" style="-fx-text-fill: #555;">
+                <font><Font size="13.0"/></font>
+            </Label>
+            <TextArea prefHeight="280.0" prefWidth="580.0" wrapText="true" editable="false"
+                      text="Developer: MadebySiris&#10;&#10;AcademicTrack is a student record management system that allows administrators to create, view, update, and delete student records stored in a cloud-hosted MariaDB database.&#10;&#10;Features:&#10;  • Full CRUD operations (Add, Edit, Delete, View)&#10;  • Real-time search and filter across all fields&#10;  • Form validation with visual indicators&#10;  • CSV import and export&#10;  • Light and Dark themes&#10;  • User authentication with sign-up and login&#10;  • Status bar feedback on all actions&#10;&#10;Built with JavaFX 20, Java 20, and Azure MariaDB.">
+                <font><Font size="13.0"/></font>
+            </TextArea>
+        </VBox>
+    </children>
 </AnchorPane>
