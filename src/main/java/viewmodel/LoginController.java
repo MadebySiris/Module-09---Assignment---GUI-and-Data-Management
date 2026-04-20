@@ -21,7 +21,7 @@ import java.util.prefs.Preferences;
 
 public class LoginController {
 
-    @FXML private GridPane rootpane;
+    @FXML private StackPane rootpane;
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordField;
     @FXML private Label errorLabel;
@@ -32,7 +32,7 @@ public class LoginController {
                 null, null, null, null, null
         ));
         rootpane.setOpacity(0);
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(10), rootpane);
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.2), rootpane);
         fadeIn.setFromValue(0);
         fadeIn.setToValue(1);
         fadeIn.play();

@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0"
-            style="-fx-background-color: #f4f4f4;"
+            style="-fx-background-color: #eef1f8;"
             xmlns="http://javafx.com/javafx/20.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="viewmodel.SignUpController">
@@ -52,14 +52,14 @@
             </Label>
 
             <Button text="Create Account" onAction="#createNewAccount"
-                    maxWidth="1.7976931348623157E308" prefHeight="38.0"
-                    style="-fx-background-color: #2e86c1; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-border-radius: 4; -fx-background-radius: 4;">
+                    maxWidth="1.7976931348623157E308" prefHeight="40.0"
+                    style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 8; -fx-border-width: 0; -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.35), 6, 0, 0, 2); -fx-cursor: hand;">
                 <VBox.margin><Insets top="8.0"/></VBox.margin>
             </Button>
 
             <Button text="Back to Login" onAction="#goBack"
                     maxWidth="1.7976931348623157E308" prefHeight="36.0"
-                    style="-fx-background-color: #aaa; -fx-text-fill: white; -fx-font-size: 13px; -fx-border-radius: 4; -fx-background-radius: 4;"/>
+                    style="-fx-background-color: transparent; -fx-text-fill: #2563eb; -fx-font-size: 13px; -fx-border-color: #2563eb; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 8; -fx-cursor: hand;"/>
         </VBox>
     </children>
 </AnchorPane>

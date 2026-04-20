@@ -1,125 +1,209 @@
+/* ── AcademicTrack Dark Theme ──────────────────────────────────────────── */
+
 .anchor_pane {
-    -fx-background-color: black;
+    -fx-background-color: #0f172a;
 }
 
-.db_btn {
-    -fx-background-color: #555;
-    -fx-radius: 2;
-    -fx-cursor: hand;
-    -fx-font-family: "Arial";
-    -fx-font-size: 14px;
-    -fx-text-alignment: center;
-    -fx-text-fill: #d5d5d5;
-    -fx-alignment: CENTER;
-    -fx-background-radius: 10;
-    -fx-pref-width: 200px;
-    -fx-pref-height: 40px;
-    -fx-text-fill: white;
+/* ── Menu Bar ─────────────────────────────────────────────────────────── */
+.menu_bar {
+    -fx-background-color: #1e293b;
+    -fx-padding: 2px 0;
+    -fx-border-color: #334155;
+    -fx-border-width: 0 0 1 0;
 }
 
+.menu_bar .label {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.menu_options > .label {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 13px;
+}
+
+.menu_options:hover > .label,
+.menu_options:focused > .label,
+.menu_options:showing > .label {
+    -fx-text-fill: #7dd3fc;
+}
+
+/* Dropdown popup background */
+.context-menu {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 3);
+}
+
+.menu_items {
+    -fx-background-color: transparent;
+    -fx-padding: 6px 14px;
+}
+
+.menu_items > .label {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 13px;
+}
+
+.menu_items:focused,
+.menu_items:hover {
+    -fx-background-color: #334155;
+}
+
+.menu_items:focused > .label,
+.menu_items:hover > .label {
+    -fx-text-fill: #7dd3fc;
+}
+
+.menu_items:disabled > .label {
+    -fx-text-fill: #475569;
+}
+
+/* ── Left Pane (profile panel) ────────────────────────────────────────── */
 .left_pane {
-    -fx-background-color: #313131;
+    -fx-background-color: #1e293b;
     -fx-pref-width: 130px;
     -fx-pref-height: 600px;
-        -fx-text-fill: white;
+    -fx-border-color: #334155;
+    -fx-border-width: 0 1 0 0;
 }
 
-.admin_section {
-    -fx-background-color: #000000;
+.image_view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 3);
 }
 
-.table_columns {
-    -fx-background-color: #171616;
-    -fx-text-fill: #e7e1e1;
-}
-
-
-.menu_bar{
-    -fx-background-color: black;
-}
-
-.menu_bar .label{
-    -fx-background-color: black;
-    -fx-font-size: 15 pt;
-        -fx-text-fill: white;
-}
-
-.menu_options .label{
-    -fx-background-color: black;
-        -fx-text-fill: white;
-
-}
-.menu_items{
-    -fx-background-color: black;
-}
+/* ── Right Pane (form panel) ──────────────────────────────────────────── */
 .text_field_pane {
-    -fx-background-color: #424242;
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-width: 0 0 0 1;
 }
 
+/* ── Text Fields ──────────────────────────────────────────────────────── */
 .text_field {
-    -fx-background-color: black;
+    -fx-background-color: #0f172a;
+    -fx-border-color: #334155;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-text-fill: #e2e8f0;
+    -fx-prompt-text-fill: #475569;
+    -fx-font-size: 13px;
+    -fx-padding: 6px 10px;
+}
+
+.text_field:focused {
+    -fx-border-color: #3b82f6;
+    -fx-background-color: #1e293b;
+    -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.25), 6, 0, 0, 0);
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────── */
+.db_btn {
+    -fx-background-color: #2563eb;
     -fx-text-fill: white;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-pref-width: 180px;
+    -fx-pref-height: 40px;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.4), 6, 0, 0, 2);
 }
 
-
-
-.image_view{
-    -fx-background-color: black;
-    -fx-border-color: white;
-    -fx-border-width: 2;
-    -fx-stroke: white;
+.db_btn:hover {
+    -fx-background-color: #3b82f6;
+    -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.5), 10, 0, 0, 3);
 }
-.table-view:focused .table-row-cell:selected .table-cell {
-    -fx-background-color: lightBlue;
-    -fx-text-fill: grey;
+
+.db_btn:pressed {
+    -fx-background-color: #1d4ed8;
+    -fx-effect: none;
 }
+
+.db_btn:disabled {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #475569;
+    -fx-border-color: #334155;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-effect: none;
+    -fx-cursor: default;
+}
+
+/* ── Status Bar ───────────────────────────────────────────────────────── */
+.admin_section {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 4px 10px;
+}
+
+/* ── Table View ───────────────────────────────────────────────────────── */
+.table_view {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #334155;
+    -fx-border-width: 1px;
+}
+
 .table-view .column-header,
 .table-view .column-header-background .filler {
-    -fx-background-color:  #6622CC;
-}
-.table-view .column-header .label{
-   -fx-text-fill: white;
-   -fx-font-weight: bold;
-   -fx-alignment: CENTER_LEFT;
-}
-.table-view .cell{
-   -fx-cell-size: 35;
-  -fx-alignment: center-left;
-  -fx-background-color: #444;
-  -fx-border-color: #29292D;
-  -fx-text-fill: lightgray;
-  -fx-alignment: CENTER_LEFT;
-
-}
-.table-row-cell:selected {
-   -fx-background-color: whitesmoke;
-   -fx-text-background-color:  #aa22CC;
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-width: 0 0 1 0;
 }
 
-/* scroll bar starts here */
-
-/* The increment and decrement button CSS class of scrollbar */
-.table-view .increment-button ,.table-view .decrement-button {
-    -fx-background-color:transparent;
-	-fx-background-radius: 2em;
-
+.table-view .column-header .label {
+    -fx-text-fill: #7dd3fc;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 8px;
 }
 
-/* The main scrollbar **track** CSS class  */
+.table-view .cell {
+    -fx-cell-size: 36px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-color: #0f172a;
+    -fx-border-color: #1e293b;
+    -fx-border-width: 0 0 1 0;
+    -fx-text-fill: #cbd5e1;
+    -fx-font-size: 13px;
+    -fx-padding: 0 8px;
+}
+
+.table-row-cell:odd > .cell {
+    -fx-background-color: #111827;
+}
+
+.table-row-cell:selected > .cell,
+.table-view:focused .table-row-cell:selected > .cell {
+    -fx-background-color: #1e3a5f;
+    -fx-text-fill: #7dd3fc;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
+.table-view .increment-button,
+.table-view .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 2em;
+}
+
 .table-view .scroll-bar:horizontal .track,
-.table-view .scroll-bar:vertical .track{
-	-fx-background-color: transparent;
-	-fx-border-color:derive( #6622CC,80%);
-
-	-fx-background-radius: 2em;
-	-fx-border-radius:2em;
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: #334155;
+    -fx-background-radius: 2em;
+    -fx-border-radius: 2em;
 }
 
-/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
 .table-view .scroll-bar:horizontal .thumb,
 .table-view .scroll-bar:vertical .thumb {
-    -fx-background-color:derive( #6622CC,90%);
-	-fx-background-insets: 2, 0, 0;
-	-fx-background-radius: 2em;
-
+    -fx-background-color: #334155;
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
 }
